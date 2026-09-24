@@ -23,3 +23,6 @@ jobs:
 
       - name: code lint
         run: ruff check .
+
+      - name: code test
+        run: pytest
