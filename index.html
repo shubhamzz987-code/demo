@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Your Name | Portfolio</title>
+  <meta
+    name="description"
+    content="A modern personal portfolio website."
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #6366f1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #aaa;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 25px 50px;
+      background:
+        radial-gradient(circle at 50% 30%, #312e81 0%, transparent 30%),
+        #0a0a0a;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid #333;
+      border-radius: 50px;
+      color: #a5b4fc;
+      background: #111;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 85px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #6366f1;
+    }
+
+    .hero p {
+      color: #aaa;
+      font-size: 19px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid #333;
+    }
+
+    .btn-primary {
+      background: #6366f1;
+      border-color: #6366f1;
+    }
+
+    .btn-primary:hover {
+      background: #4f46e5;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary:hover {
+      background: #181818;
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 25px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .section-description {
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: #aaa;
+      margin-bottom: 15px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 15px;
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 8px;
+      color: #ccc;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      padding: 25px;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: #6366f1;
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+    }
+
+    .project p {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .project a {
+      color: #818cf8;
+      font-weight: bold;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 20px;
+      padding: 70px 25px;
+    }
+
+    .contact p {
+      color: #888;
+      margin: 15px auto 25px;
+      max-width: 600px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #666;
+      border-top: 1px solid #222;
+    }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">Your<span>Name</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <div class="badge">👋 Welcome to my website</div>
+
+      <h1>
+        Hi, I'm <span>Your Name</span>.
+      </h1>
+
+      <p>
+        I build modern websites, applications, and digital experiences
+        that are fast, clean, and easy to use.
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">
+          View My Work
+        </a>
+
+        <a href="#contact" class="btn btn-secondary">
+          Contact Me
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <p class="section-description">
+      A little bit about who I am and what I do.
+    </p>
+
+    <div class="about">
+
+      <div class="about-text">
+        <p>
+          I'm a developer passionate about creating useful and beautiful
+          digital products.
+        </p>
+
+        <p>
+          I enjoy turning ideas into real-world applications and learning
+          new technologies along the way.
+        </p>
+      </div>
+
+      <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Git</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+
+    <h2 class="section-title">My Projects</h2>
+
+    <p class="section-description">
+      Some things I've built.
+    </p>
+
+    <div class="projects">
+
+      <div class="project">
+        <h3>Project One</h3>
+
+        <p>
+          A short description of your project goes here. Explain what
+          it does and what technologies you used.
+        </p>
+
+        <a href="#" target="_blank">
+          View Project →
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>Project Two</h3>
+
+        <p>
+          Another project description. Keep it short and highlight
+          what makes the project interesting.
+        </p>
+
+        <a href="#" target="_blank">
+          View Project →
+        </a>
+      </div>
+
+      <div class="project">
+        <h3>Project Three</h3>
+
+        <p>
+          Add another project here with a link to GitHub or the live
+          website.
+        </p>
+
+        <a href="#" target="_blank">
+          View Project →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="contact">
+
+      <h2 class="section-title">Let's Work Together</h2>
+
+      <p>
+        Have an idea or project in mind? Feel free to get in touch.
+      </p>
+
+      <a
+        href="mailto:your@email.com"
+        class="btn btn-primary"
+      >
+        Email Me
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Your Name. All rights reserved.
+  </footer>
+
+</body>
+</html>
