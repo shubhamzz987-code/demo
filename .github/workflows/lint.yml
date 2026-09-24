@@ -1,0 +1,14 @@
+#goal is to check if my python code is syntactically correct
+
+name: code lint
+
+on:
+  push:
+jobs:
+   code-linter:
+        runs-on: ubuntu:latest
+        steps:
+         -name: code checkout
+          uses: actions/checkout@v7
+         -name: code lint
+          uses: ruff check .
