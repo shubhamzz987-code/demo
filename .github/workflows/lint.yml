@@ -4,15 +4,19 @@ name: code lint
 
 on:
   push:
+
 jobs:
    code-linter:
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
+
         steps:
-         - name: code checkout
-          uses: actions/checkout@v7
-         - name: code lint
-          run: ruff check .
-         - name: setup python
-          uses: actions/setup-python@v7
-          with:
-            python-version:'3.13'
+          - name: code checkout
+            uses: actions/checkout@v7
+
+          - name: code lint
+            run: ruff check .
+
+          - name: setup python
+            uses: actions/setup-python@v7
+            with:
+              python-version:'3.13'
