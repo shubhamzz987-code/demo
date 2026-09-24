@@ -8,11 +8,11 @@ jobs:
    code-linter:
         runs-on: ubuntu:latest
         steps:
-         -name: code checkout
+         - name: code checkout
           uses: actions/checkout@v7
-         -name: code lint
+         - name: code lint
           run: ruff check .
-         -name: setup python
+         - name: setup python
           uses: actions/setup-python@v7
           with:
             python-version:'3.13'
